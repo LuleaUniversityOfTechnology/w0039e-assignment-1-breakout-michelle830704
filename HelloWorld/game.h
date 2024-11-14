@@ -1,5 +1,10 @@
 #pragma once
+#define PLAY_USING_GAMEOBJECT_MANAGER
 #include "Play.h"
 
-void SpawnBall(int x, int y, float velocityX, float velocityY);
+void SpawnBall();
+void StepFrame(float elapsedTime);
+
+
+
 

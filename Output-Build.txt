@@ -1,0 +1,17 @@
+﻿Build started at 15:22...
+1>------ Build started: Project: HelloWorld, Configuration: Debug x64 ------
+1>game.cpp
+1>MainGame.cpp
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\MainGame.cpp(10,2): error C2065: 'ball': undeclared identifier
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\MainGame.cpp(10,18): error C3861: 'normalize': identifier not found
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\MainGame.cpp(10,41): error C2065: 'ballSpeed': undeclared identifier
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\game.cpp(7,53): warning C4100: 'velocityY': unreferenced formal parameter
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\game.cpp(7,36): warning C4100: 'velocityX': unreferenced formal parameter
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\game.cpp(7,27): warning C4100: 'y': unreferenced formal parameter
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\game.cpp(7,20): warning C4100: 'x': unreferenced formal parameter
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\game.cpp(28,9): error C2373: 'ballSpeed': redefinition; different type modifiers
+1>    C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\constant.h(7,13):
+1>    see declaration of 'ballSpeed'
+1>Done building project "HelloWorld.vcxproj" -- FAILED.
+========== Build: 0 succeeded, 1 failed, 0 up-to-date, 0 skipped ==========
+========== Build completed at 15:22 and took 01,613 seconds ==========
