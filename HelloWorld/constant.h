@@ -10,6 +10,10 @@ const float radius = 4.f;
 
 enum ObjectType 
 {
-	TYPE_BALL
+	TYPE_BALL,
+	TYPE_BRICK,
+	
 
 };
+
+

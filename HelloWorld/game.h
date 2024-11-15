@@ -4,6 +4,7 @@
 
 void SpawnBall();
 void StepFrame(float elapsedTime);
+void SetupScene();
 
 
 

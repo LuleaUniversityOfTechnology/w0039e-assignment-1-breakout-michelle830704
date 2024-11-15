@@ -8,6 +8,7 @@
 void MainGameEntry(PLAY_IGNORE_COMMAND_LINE) {
 	SpawnBall();
 	Play::CentreAllSpriteOrigins();
+	SetupScene();
 
 
 }
