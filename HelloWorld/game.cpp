@@ -19,37 +19,59 @@ void SpawnBall() {
 	}
 
 }
-
-
-
-void StepFrame(float elapsedTime)  {
-	
-	const std::vector<int> ballIds = Play::CollectGameObjectIDsByType(ObjectType::TYPE_BALL);
-	
-			
-		for (int i = 0; i < ballIds.size();i++) {
-
-			Play::GameObject& ball = Play::GetGameObject(ballIds[i]);
-			Play::UpdateGameObject(ball);
-
-
-			Play::DrawObject(ball);
-			
-
-			if (ball.pos.x <= radius || ball.pos.x >= DISPLAY_WIDTH - radius) {
-				ball.velocity.x *= -1;
-
-			}
-			if (ball.pos.y <= radius || ball.pos.y >= DISPLAY_HEIGHT - radius) {
-				ball.velocity.y *= -1;  
-			}
-		
-			/*ball.pos.x += ball.velocity.x;
-			ball.pos.y += ball.velocity.y;*/
+void SetupScene() {
+	const int brickRows = 8;     
+	const int brickCols = 40;     
+	const int brickWidth = 16;    
+	const int brickHeight = 10;  
+	const int startX = 10;        
+	const int startY = 353;        
+	const int spacing = 2;
+	for (int row = 0; row < brickRows; ++row) {
+		for (int col = 0; col < brickCols; ++col) {
+			int x = startX + col * (brickWidth + spacing);
+			int y = startY - row * (brickHeight + spacing);
+			Play::CreateGameObject(ObjectType::TYPE_BRICK, { x, y }, 8, "brick");
 		}
+	}
+}
+
+
+void StepFrame(float elapsedTime) {
+	const std::vector<int> ballIds = Play::CollectGameObjectIDsByType(ObjectType::TYPE_BALL);
+	const std::vector<int> bricksId= Play::CollectGameObjectIDsByType(ObjectType::TYPE_BRICK);
+
+	for (int i = 0; i < bricksId.size(); i++) {
+		Play::GameObject& brick = Play::GetGameObject(bricksId[i]);
+		Play::UpdateGameObject(brick);
+		Play::DrawObject(brick);
+
+	}
+			
+	for (int i = 0; i < ballIds.size();i++) {
+		Play::GameObject& ball = Play::GetGameObject(ballIds[i]);
+		Play::UpdateGameObject(ball);
+		Play::DrawObject(ball);
+		
+			
+
+		if (ball.pos.x <= radius || ball.pos.x >= DISPLAY_WIDTH - radius) {
+			ball.velocity.x *= -1;
+
+		}
+		if (ball.pos.y <= radius || ball.pos.y >= DISPLAY_HEIGHT - radius) {
+			ball.velocity.y *= -1;  
+		}
+		
+		/*ball.pos.x += ball.velocity.x;
+		ball.pos.y += ball.velocity.y;*/
+
+
+	}
 
 
 
 	
 
 }
+
