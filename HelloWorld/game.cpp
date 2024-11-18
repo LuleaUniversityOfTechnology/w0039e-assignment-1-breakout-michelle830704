@@ -20,8 +20,11 @@ void SpawnBall() {
 	}
 
 }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 13a1efe4f2b0e72dad314a5e60efcca3ce6c2488
 void SetupScene() {
 	const int brickRows = 8;     
 	const int brickCols = 40;     
@@ -35,6 +38,7 @@ void SetupScene() {
 			int x = startX + col * (brickWidth + spacing);
 			int y = startY - row * (brickHeight + spacing);
 			Play::CreateGameObject(ObjectType::TYPE_BRICK, { x, y }, 8, "brick");
+<<<<<<< HEAD
 		}
 	}
 }
@@ -79,6 +83,44 @@ void StepFrame(float elapsedTime) {
 
 		}
 	}
+=======
+		}
+	}
+}
+
+
+void StepFrame(float elapsedTime) {
+	const std::vector<int> ballIds = Play::CollectGameObjectIDsByType(ObjectType::TYPE_BALL);
+	const std::vector<int> bricksId= Play::CollectGameObjectIDsByType(ObjectType::TYPE_BRICK);
+
+	for (int i = 0; i < bricksId.size(); i++) {
+		Play::GameObject& brick = Play::GetGameObject(bricksId[i]);
+		Play::UpdateGameObject(brick);
+		Play::DrawObject(brick);
+
+	}
+			
+	for (int i = 0; i < ballIds.size();i++) {
+		Play::GameObject& ball = Play::GetGameObject(ballIds[i]);
+		Play::UpdateGameObject(ball);
+		Play::DrawObject(ball);
+		
+			
+
+		if (ball.pos.x <= radius || ball.pos.x >= DISPLAY_WIDTH - radius) {
+			ball.velocity.x *= -1;
+
+		}
+		if (ball.pos.y <= radius || ball.pos.y >= DISPLAY_HEIGHT - radius) {
+			ball.velocity.y *= -1;  
+		}
+		
+		/*ball.pos.x += ball.velocity.x;
+		ball.pos.y += ball.velocity.y;*/
+
+
+	}
+>>>>>>> 13a1efe4f2b0e72dad314a5e60efcca3ce6c2488
 
 
 
