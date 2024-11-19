@@ -1,5 +1,7 @@
 #pragma once
-
+#include "Paddle.h"
+#include "game.h"
+#include "Play.h"
 
 const int DISPLAY_WIDTH = 640;
 const int DISPLAY_HEIGHT = 360;
@@ -12,8 +14,8 @@ enum ObjectType
 {
 	TYPE_BALL,
 	TYPE_BRICK,
+	TYPE_PADDLE,
 	
-
 };
-
+extern Paddle paddle;
 
