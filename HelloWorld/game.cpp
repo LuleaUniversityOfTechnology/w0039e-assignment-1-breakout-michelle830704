@@ -80,9 +80,10 @@ void StepFrame(float elapsedTime) {
 		}
 	}
 
-
-	UpdatePaddlePosition(paddle);
 	DrawPaddle(paddle);
+	UpdatePaddlePosition(paddle);
+	
+	
 
 	
 
