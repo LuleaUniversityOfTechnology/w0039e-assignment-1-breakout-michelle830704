@@ -17,7 +17,6 @@ void DrawPaddle(const Paddle& paddle);
 
 void UpdatePaddlePosition(Paddle & paddle);
 
-
 struct Point {
     float x;
     float y;

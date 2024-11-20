@@ -1,0 +1,69 @@
+﻿Build started at 11:33...
+1>------ Build started: Project: HelloWorld, Configuration: Debug x64 ------
+1>game.cpp
+1>MainGame.cpp
+1>paddle.cpp
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\constant.h(21,8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+1>(compiling source file 'MainGame.cpp')
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\constant.h(21,15): error C2146: syntax error: missing ';' before identifier 'paddle'
+1>(compiling source file 'MainGame.cpp')
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\paddle.h(16,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+1>(compiling source file 'MainGame.cpp')
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\paddle.h(16,29): error C2143: syntax error: missing ',' before '&'
+1>(compiling source file 'MainGame.cpp')
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\paddle.h(18,6): error C2182: 'UpdatePaddlePosition': this use of 'void' is not valid
+1>(compiling source file 'MainGame.cpp')
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\paddle.h(18,36): error C2065: 'paddle': undeclared identifier
+1>(compiling source file 'MainGame.cpp')
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\game.h(11,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+1>(compiling source file 'MainGame.cpp')
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\game.h(11,29): error C2143: syntax error: missing ',' before '&'
+1>(compiling source file 'MainGame.cpp')
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\game.h(12,6): error C2182: 'UpdatePaddlePosition': this use of 'void' is not valid
+1>(compiling source file 'MainGame.cpp')
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\game.h(12,6): error C2374: 'UpdatePaddlePosition': redefinition; multiple initialization
+1>(compiling source file 'MainGame.cpp')
+1>    C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\paddle.h(18,6):
+1>    see declaration of 'UpdatePaddlePosition'
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\game.h(12,35): error C2065: 'paddle': undeclared identifier
+1>(compiling source file 'MainGame.cpp')
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\paddle.cpp(10,32): warning C4459: declaration of 'paddle' hides global declaration
+1>    C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\constant.h(21,15):
+1>    see declaration of 'paddle'
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\paddle.cpp(17,35): warning C4459: declaration of 'paddle' hides global declaration
+1>    C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\constant.h(21,15):
+1>    see declaration of 'paddle'
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\constant.h(21,8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+1>(compiling source file 'game.cpp')
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\constant.h(21,15): error C2146: syntax error: missing ';' before identifier 'paddle'
+1>(compiling source file 'game.cpp')
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\paddle.h(16,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+1>(compiling source file 'game.cpp')
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\paddle.h(16,29): error C2143: syntax error: missing ',' before '&'
+1>(compiling source file 'game.cpp')
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\paddle.h(18,6): error C2182: 'UpdatePaddlePosition': this use of 'void' is not valid
+1>(compiling source file 'game.cpp')
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\paddle.h(18,36): error C2065: 'paddle': undeclared identifier
+1>(compiling source file 'game.cpp')
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\game.h(11,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+1>(compiling source file 'game.cpp')
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\game.h(11,29): error C2143: syntax error: missing ',' before '&'
+1>(compiling source file 'game.cpp')
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\game.h(12,6): error C2182: 'UpdatePaddlePosition': this use of 'void' is not valid
+1>(compiling source file 'game.cpp')
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\game.h(12,6): error C2374: 'UpdatePaddlePosition': redefinition; multiple initialization
+1>(compiling source file 'game.cpp')
+1>    C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\paddle.h(18,6):
+1>    see declaration of 'UpdatePaddlePosition'
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\game.h(12,35): error C2065: 'paddle': undeclared identifier
+1>(compiling source file 'game.cpp')
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\game.cpp(9,8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\game.cpp(9,8): warning C4211: nonstandard extension used: redefined extern to static
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\game.cpp(9,15): error C2146: syntax error: missing ';' before identifier 'paddle'
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\game.cpp(15,134): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\game.cpp(63,35): error C2065: 'paddle': undeclared identifier
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\game.cpp(83,13): error C2065: 'paddle': undeclared identifier
+1>C:\Users\mecmag-4\source\repos\w0039e-assignment-1-breakout-michelle830704\HelloWorld\game.cpp(84,23): error C2065: 'paddle': undeclared identifier
+1>Done building project "HelloWorld.vcxproj" -- FAILED.
+========== Build: 0 succeeded, 1 failed, 0 up-to-date, 0 skipped ==========
+========== Build completed at 11:33 and took 01,295 seconds ==========
