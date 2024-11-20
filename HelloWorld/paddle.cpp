@@ -1,6 +1,8 @@
 #include "constant.h"
 #include "paddle.h"
 #include "Play.h"
+#include "game.h"
+#include <iostream>
 
 
 
@@ -23,20 +25,38 @@ void UpdatePaddlePosition(Paddle& paddle) {
         paddle.position.x += paddleSpeed;
     }
 
- 
+
     if (paddle.position.x - paddle.width / 2 < 0) {
         paddle.position.x = paddle.width / 2;
     }
     if (paddle.position.x + paddle.width / 2 > DISPLAY_WIDTH) {
         paddle.position.x = DISPLAY_WIDTH - paddle.width / 2;
     }
-    
+
 }
 
-bool IsColliding(const Paddle& paddle, Play::GameObject& ball) {
+bool isCollidingWithPaddle(const Ball& ball, const Point& paddleTopLeft, const Point& paddleBottomRight) {
 
-    const float dx = ball.pos.x - Max(paddle.position.x-paddle.width/2, Min(ball.position.x-, ball.radius.x));
-    const float dy = ball.pos.y - Max(paddle.position.y- paddle.width / 2, Min(ball.position.y - , ball.radius.y);
+
+    float closestX = std::max(paddleTopLeft.x, std::min(ball.pos.x, paddleBottomRight.x));
+    float closestY = std::max(paddleTopLeft.y, std::min(ball.pos.y, paddleBottomRight.y));
+
+    float dx = ball.pos.x - closestX;
+    float dy = ball.pos.y - closestY;
+
     return (dx * dx + dy * dy) < (ball.radius * ball.radius);
-
 }
+
+    int main() {
+            Ball ball;
+            ball.pos = { 5.0f, 5.0f }; 
+            ball.radius = 1.0f;     
+
+          
+            Point paddleTopLeft = { 3.0f, 4.0f };       
+            Point paddleBottomRight = { 7.0f, 6.0f };   
+     }
+   
+    
+
+

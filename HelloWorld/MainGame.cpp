@@ -21,7 +21,6 @@ bool MainGameUpdate(float elapsedTime) {
 	Play::ClearDrawingBuffer(Play::cBlack);
 	StepFrame(elapsedTime);
 	Play::PresentDrawingBuffer();
-
 	return Play::KeyDown(Play::KEY_ESCAPE);
 	
 }

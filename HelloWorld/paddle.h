@@ -1,7 +1,10 @@
 #pragma once
 #define PLAY_USING_GAMEOBJECT_MANAGER
 #include "Play.h"
+#include "constant.h"
 #include "paddle.h"
+
+
 
 struct Paddle {
     Play::Point2D position{320,8};
@@ -14,10 +17,15 @@ void DrawPaddle(const Paddle& paddle);
 
 void UpdatePaddlePosition(Paddle & paddle);
 
-struct Vec2 {
-    float x,y;
-    
+
+struct Point {
+    float x;
+    float y;
 };
 
 
-bool IsColliding(const Paddle& paddle, Play::GameObject& ball);
+struct Ball {
+    Point pos;    
+    float radius; 
+};
+
