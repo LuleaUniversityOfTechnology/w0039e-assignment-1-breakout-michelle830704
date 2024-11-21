@@ -2,7 +2,7 @@
 #define PLAY_USING_GAMEOBJECT_MANAGER
 #include "Play.h"
 #include "constant.h"
-#include "paddle.h"
+
 
 
 
@@ -13,6 +13,9 @@ struct Paddle {
     float height = 20.0f;  
 };
 
+extern Paddle paddle;
+
+
 void DrawPaddle(const Paddle& paddle);
 
 void UpdatePaddlePosition(Paddle & paddle);
@@ -20,11 +23,5 @@ void UpdatePaddlePosition(Paddle & paddle);
 struct Point {
     float x;
     float y;
-};
-
-
-struct Ball {
-    Point pos;    
-    float radius; 
 };
 

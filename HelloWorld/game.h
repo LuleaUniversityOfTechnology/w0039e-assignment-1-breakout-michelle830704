@@ -10,5 +10,5 @@ void SetupScene();
 void UpdateGame();
 void DrawPaddle(const Paddle& paddle);
 void UpdatePaddlePosition(Paddle& paddle);
-bool isCollidingWithPaddle(const Ball& ball, const Point& paddleTopLeft, const Point& paddleBottomRight);
+bool isCollidingWithPaddle(const Play::GameObject& ball);
 

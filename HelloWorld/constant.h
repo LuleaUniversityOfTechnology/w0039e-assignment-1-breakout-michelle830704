@@ -1,6 +1,5 @@
 #pragma once
-
-#include "game.h"
+#define PLAY_USING_GAMEOBJECT_MANAGER
 #include "Play.h"
 
 const int DISPLAY_WIDTH = 640;
@@ -18,5 +17,4 @@ enum ObjectType
 	TYPE_PADDLE,
 	
 };
-extern Paddle paddle;
 

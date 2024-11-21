@@ -60,7 +60,8 @@ void StepFrame(float elapsedTime) {
 		Play::UpdateGameObject(ball);
 		Play::DrawObject(ball);
 
-		bool hasCollision = IsColliding(paddle, ball);
+		
+		bool hasCollision = isCollidingWithPaddle(ball);
 
 		if (ball.pos.x <= radius || ball.pos.x >= DISPLAY_WIDTH - radius) {
 			ball.velocity.x *= -1;

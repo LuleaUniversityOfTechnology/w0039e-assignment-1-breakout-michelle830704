@@ -1,11 +1,12 @@
 #include "constant.h"
 #include "paddle.h"
+#define PLAY_USING_GAMEOBJECT_MANAGER
 #include "Play.h"
 #include "game.h"
 #include <iostream>
 
 
-
+Paddle paddle;
 
 void DrawPaddle(const Paddle & paddle) {
     Play::Point2D bottom_left(paddle.position.x - paddle.width / 2, paddle.position.y - paddle.height / 2);
@@ -23,6 +24,7 @@ void UpdatePaddlePosition(Paddle& paddle) {
     }
     if (Play::KeyDown(Play::KEY_RIGHT)) {
         paddle.position.x += paddleSpeed;
+
     }
 
 
@@ -35,11 +37,13 @@ void UpdatePaddlePosition(Paddle& paddle) {
 
 }
 
-bool isCollidingWithPaddle(const Ball& ball, const Point& paddleTopLeft, const Point& paddleBottomRight) {
+bool isCollidingWithPaddle(const Play::GameObject& ball) {
 
+    Play::Point2D top_left(paddle.position.x - paddle.width / 2, paddle.position.y + paddle.height / 2);
+    Play::Point2D bottom_right(paddle.position.x + paddle.width / 2, paddle.position.y - paddle.height / 2);
 
-    float closestX = std::max(paddleTopLeft.x, std::min(ball.pos.x, paddleBottomRight.x));
-    float closestY = std::max(paddleTopLeft.y, std::min(ball.pos.y, paddleBottomRight.y));
+    float closestX = std::max(top_left.x, std::min(ball.pos.x, bottom_right.x));
+    float closestY = std::max(top_left.y, std::min(ball.pos.y, bottom_right.y));
 
     float dx = ball.pos.x - closestX;
     float dy = ball.pos.y - closestY;
@@ -47,16 +51,5 @@ bool isCollidingWithPaddle(const Ball& ball, const Point& paddleTopLeft, const P
     return (dx * dx + dy * dy) < (ball.radius * ball.radius);
 }
 
-    int main() {
-            Ball ball;
-            ball.pos = { 5.0f, 5.0f }; 
-            ball.radius = 1.0f;     
-
-          
-            Point paddleTopLeft = { 3.0f, 4.0f };       
-            Point paddleBottomRight = { 7.0f, 6.0f };   
-     }
-   
-    
 
 
