@@ -65,6 +65,7 @@ void StepFrame(float elapsedTime) {
 		Play::GameObject& brick = Play::GetGameObject(bricksId[i]);
 		Play::UpdateGameObject(brick);
 		Play::DrawObject(brick);
+
 	}
 
 	for (int i = 0; i < ballIds.size(); i++) {

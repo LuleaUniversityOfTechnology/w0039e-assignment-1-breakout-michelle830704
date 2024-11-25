@@ -5,7 +5,7 @@
 #include <algorithm>
 #include "game.h"
 #include "paddle.h"
-#include <iostream>
+
 using namespace std;
 
 Scoreboard::Scoreboard() : currentScore(0) {
@@ -18,12 +18,12 @@ void Scoreboard::drawHighScores(int screenWidth, int screenHeight) {
     int x = screenWidth - 200; 
     int y = screenHeight - 150;
 
-    Play::Vector2f position(20, static_cast<float>(screenHeight - 150));
-    Play::DrawDebugText(screenHeight - 50, "High Scores:");
-
+    Play::Point2D bottom_right(Scoreboard.position.x - screenWidth ,Scoreboard.position.y - screenHeight );
+    Play::Point2D top_left(Scoreboard.position.x - screenWidth, Scoreboard.position.y - screenHeight);
+    Play::DrawDebugText(top_left,bottom_right, Play::cWhite, true);
 
     for (int i = 0; i < MAX_HIGH_SCORES; i++) {
-        Play::DrawDebugText(x, y + i * 20, std::to_string(highScores[i]).c_str());
+    Play::DrawDebugText(x, y + i * 20, std::to_string(highScores[i]).c_str());
       
     }
 }
