@@ -4,9 +4,20 @@
 #include "Play.h"
 #include "constant.h"
 #include "paddle.h"
+#include "Scoreboard.h"
+#include <vector>
+#include <algorithm>
 
 
 static Paddle paddle;
+
+const int SCREEN_WIDTH = 800;
+const int SCREEN_HEIGHT = 600;
+float x = SCREEN_WIDTH - 200;
+float y = SCREEN_HEIGHT - 150;
+
+unsigned int highScores[5] = { 0, 0, 0, 0, 0 };
+unsigned int currentScore = 0;
 
 
 void SpawnBall() {
@@ -17,6 +28,7 @@ void SpawnBall() {
 
 
 		ball.velocity = normalize({ 1, -1 }) * ballSpeed;
+
 
 	}
 
@@ -60,7 +72,7 @@ void StepFrame(float elapsedTime) {
 		Play::UpdateGameObject(ball);
 		Play::DrawObject(ball);
 
-		
+
 		bool hasCollision = isCollidingWithPaddle(ball);
 
 		if (ball.pos.x <= radius || ball.pos.x >= DISPLAY_WIDTH - radius) {
@@ -79,16 +91,13 @@ void StepFrame(float elapsedTime) {
 			}
 
 		}
+
+
+		DrawPaddle(paddle);
+		UpdatePaddlePosition(paddle);
+		
+		
+		
 	}
 
-	DrawPaddle(paddle);
-	UpdatePaddlePosition(paddle);
 	
-	
-
-	
-
-}
-
-
-

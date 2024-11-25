@@ -22,9 +22,7 @@ bool MainGameUpdate(float elapsedTime) {
 	StepFrame(elapsedTime);
 	Play::PresentDrawingBuffer();
 	return Play::KeyDown(Play::KEY_ESCAPE);
-	
-}
-
+	}
 
 
 int MainGameExit(){

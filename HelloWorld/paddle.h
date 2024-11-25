@@ -2,6 +2,8 @@
 #define PLAY_USING_GAMEOBJECT_MANAGER
 #include "Play.h"
 #include "constant.h"
+#include "game.h"
+#include <iostream>
 
 
 
