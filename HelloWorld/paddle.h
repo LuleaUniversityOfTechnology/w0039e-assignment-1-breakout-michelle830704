@@ -3,7 +3,8 @@
 #include "Play.h"
 #include "constant.h"
 #include "game.h"
-#include <iostream>
+
+
 
 
 
@@ -20,7 +21,7 @@ extern Paddle paddle;
 
 void DrawPaddle(const Paddle& paddle);
 
-void UpdatePaddlePosition(Paddle & paddle);
+
 
 struct Point {
     float x;

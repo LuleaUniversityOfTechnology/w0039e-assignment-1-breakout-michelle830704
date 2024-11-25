@@ -22,6 +22,8 @@ public:
     void reset(unsigned int screenWidth, unsigned int screenHeight);
     void incrementScore();
     unsigned int getCurrentScore() const;
+    void DestroyAlSprites();
+    void SetSpritePosition();
 }
 
 #endif

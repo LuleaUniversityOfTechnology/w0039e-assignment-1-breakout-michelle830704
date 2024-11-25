@@ -6,6 +6,7 @@
 #include "game.h"
 #include "paddle.h"
 #include <iostream>
+using namespace std;
 
 Scoreboard::Scoreboard() : currentScore(0) {
     for (int i = 0; i < MAX_HIGH_SCORES; i++) {

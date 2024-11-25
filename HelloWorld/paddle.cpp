@@ -1,9 +1,9 @@
 #include "constant.h"
-#include "paddle.h"
 #define PLAY_USING_GAMEOBJECT_MANAGER
 #include "Play.h"
 #include "game.h"
 #include <iostream>
+#include "paddle.h"
 
 
 Paddle paddle;
