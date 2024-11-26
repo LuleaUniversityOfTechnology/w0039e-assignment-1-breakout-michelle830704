@@ -1,7 +1,6 @@
 #pragma once
-#ifndef SCOREBOARD_H
-#define SCOREBOARD_H
-#include "paddle.h"
+
+
 #include "game.h"
 #include <string>
 #include <iostream>
@@ -22,8 +21,5 @@ public:
     void reset(unsigned int screenWidth, unsigned int screenHeight);
     void incrementScore();
     unsigned int getCurrentScore() const;
-    void DestroyAlSprites();
-    void SetSpritePosition();
-}
 
-#endif
+};

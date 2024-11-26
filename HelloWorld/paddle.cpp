@@ -1,12 +1,10 @@
 #include "constant.h"
 #define PLAY_USING_GAMEOBJECT_MANAGER
 #include "Play.h"
-#include "game.h"
 #include <iostream>
 #include "paddle.h"
+#include "game.h"
 
-
-Paddle paddle;
 
 void DrawPaddle(const Paddle & paddle) {
     Play::Point2D bottom_left(paddle.position.x - paddle.width / 2, paddle.position.y - paddle.height / 2);

@@ -5,10 +5,6 @@
 #include "game.h"
 
 
-
-
-
-
 struct Paddle {
     Play::Point2D position{320,8};
 
@@ -20,7 +16,8 @@ extern Paddle paddle;
 
 
 void DrawPaddle(const Paddle& paddle);
-
+void UpdatePaddlePosition(Paddle& paddle);
+bool isCollidingWithPaddle(const Play::GameObject& ball);
 
 
 struct Point {

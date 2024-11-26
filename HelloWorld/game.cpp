@@ -4,20 +4,22 @@
 #include "Play.h"
 #include "constant.h"
 #include "paddle.h"
-#include "Scoreboard.h"
 #include <vector>
 #include <algorithm>
+#include <iostream>
+#include "Scoreboard.h"
 
 
-static Paddle paddle;
+Paddle paddle;
+
+Scoreboard scoreboard;
 
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
-float x = SCREEN_WIDTH - 200;
-float y = SCREEN_HEIGHT - 150;
 
-unsigned int highScores[5] = { 0, 0, 0, 0, 0 };
-unsigned int currentScore = 0;
+
+
+
 
 
 void SpawnBall() {
@@ -56,7 +58,8 @@ void SetupScene() {
 
 
 
-void StepFrame(float elapsedTime) {
+void StepFrame(float elapsedTime)
+{
 	const std::vector<int> ballIds = Play::CollectGameObjectIDsByType(ObjectType::TYPE_BALL);
 	const std::vector<int> bricksId = Play::CollectGameObjectIDsByType(ObjectType::TYPE_BRICK);
 
@@ -87,18 +90,23 @@ void StepFrame(float elapsedTime) {
 			Play::GameObject& brick = Play::GetGameObject(brickId);
 			if (Play::IsColliding(ball, brick)) {
 				Play::DestroyGameObject(brickId);
+				scoreboard.incrementScore();
 				ball.velocity.y *= -1;
 				break;
 			}
+		
 
 		}
 
 
 		DrawPaddle(paddle);
 		UpdatePaddlePosition(paddle);
-		
-		
-		
+		scoreboard.drawCurrentScore(SCREEN_WIDTH, SCREEN_HEIGHT);
+		scoreboard.drawHighScores(SCREEN_WIDTH, SCREEN_HEIGHT);
+
+
+
 	}
+}
 
 	

@@ -9,9 +9,5 @@ void SpawnBall();
 void StepFrame(float elapsedTime);
 void SetupScene();
 void UpdateGame();
-void DrawPaddle(const Paddle& paddle);
-void UpdatePaddlePosition(Paddle& paddle);
-bool isCollidingWithPaddle(const Play::GameObject& ball);
 void drawHighScores();
-void DestroyAlSprites();
-void SetSpritePosition();
+
