@@ -7,6 +7,7 @@
 #include "paddle.h"
 
 using namespace std;
+Scoreboard scoreboard;
 
 Scoreboard::Scoreboard() : currentScore(0) {
     for (int i = 0; i < MAX_HIGH_SCORES; i++) {
@@ -18,12 +19,11 @@ void Scoreboard::drawHighScores(int screenWidth, int screenHeight) {
     int x = screenWidth - 200; 
     int y = screenHeight - 150;
 
-    Play::Point2D bottom_right(Scoreboard.position.x - screenWidth ,Scoreboard.position.y - screenHeight );
-    Play::Point2D top_left(Scoreboard.position.x - screenWidth, Scoreboard.position.y - screenHeight);
-    Play::DrawDebugText(top_left,bottom_right, Play::cWhite, true);
+    Play::Point2D bottom_right = Play::Point2D(screenWidth*0.75f, screenHeight*0.25f);
+    Play::DrawDebugText(bottom_right, ("Score: " + std::to_string(currentScore)).c_str());
 
     for (int i = 0; i < MAX_HIGH_SCORES; i++) {
-    Play::DrawDebugText(x, y + i * 20, std::to_string(highScores[i]).c_str());
+        Play::DrawDebugText({ x, y + i * 20 }, std::to_string(highScores[i]).c_str());
       
     }
 }
