@@ -1,6 +1,7 @@
 #define PLAY_USING_GAMEOBJECT_MANAGER
-#include "game.h"
+#define PLAY_IMPLEMENTATION
 #include "Play.h"
+#include "game.h"
 #include "paddle.h"
 #include "constant.h"
 
@@ -27,5 +28,6 @@ bool MainGameUpdate(float elapsedTime) {
 
 int MainGameExit(){
 	Play::DestroyManager();
+	ExitGame();
 	return PLAY_OK;
 }

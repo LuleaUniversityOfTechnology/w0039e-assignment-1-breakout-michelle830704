@@ -1,35 +1,35 @@
-#define PLAY_IMPLEMENTATION
-#define PLAY_USING_GAMEOBJECT_MANAGER
+
 #include "game.h"
 #include "Play.h"
 #include "constant.h"
 #include "paddle.h"
 #include <vector>
-#include <algorithm>
 #include <iostream>
 #include "Scoreboard.h"
+#include "HighScores.h"
+#include <fstream>
+
+
+
+HighScores highScores;
 
 
 Paddle paddle;
 
 Scoreboard scoreboard;
 
-const int SCREEN_WIDTH = 800;
-const int SCREEN_HEIGHT = 600;
 
-
-
-
-
+const std::string HIGH_SCORE_FILE = "highscores.txt";
+//unsigned int currentScore = 0;
+bool isGameRunning = true;
 
 void SpawnBall() {
 
 	for (int i = 0; i < 1; i++) {
-		const int objectId = Play::CreateGameObject(ObjectType::TYPE_BALL, { DISPLAY_WIDTH / 2 + (i * 1), DISPLAY_HEIGHT - 80 + (i * 1) }, radius, "ball");
+		const int objectId = Play::CreateGameObject(ObjectType::TYPE_BALL, { DISPLAY_WIDTH / 2 + (i * 1), DISPLAY_HEIGHT - 160 + (i * 1) }, radius, "ball");
 		Play::GameObject& ball = Play::GetGameObject(objectId);
 
-
-		ball.velocity = normalize({ 1, -1 }) * ballSpeed;
+		ball.velocity = Play::normalize({ 1, -1 }) * ballSpeed;
 
 
 	}
@@ -58,8 +58,7 @@ void SetupScene() {
 
 
 
-void StepFrame(float elapsedTime)
-{
+void StepFrame(float elapsedTime) {
 	const std::vector<int> ballIds = Play::CollectGameObjectIDsByType(ObjectType::TYPE_BALL);
 	const std::vector<int> bricksId = Play::CollectGameObjectIDsByType(ObjectType::TYPE_BRICK);
 
@@ -78,6 +77,11 @@ void StepFrame(float elapsedTime)
 
 
 		bool hasCollision = isCollidingWithPaddle(ball);
+		if (hasCollision)
+		{
+			ball.velocity.y *= -1;
+		}
+		
 
 		if (ball.pos.x <= radius || ball.pos.x >= DISPLAY_WIDTH - radius) {
 			ball.velocity.x *= -1;
@@ -92,21 +96,64 @@ void StepFrame(float elapsedTime)
 				Play::DestroyGameObject(brickId);
 				scoreboard.incrementScore();
 				ball.velocity.y *= -1;
-				break;
 			}
-		
-
 		}
 
-
+		UpdateGame();
 		DrawPaddle(paddle);
 		UpdatePaddlePosition(paddle);
-		scoreboard.drawCurrentScore(SCREEN_WIDTH, SCREEN_HEIGHT);
-		scoreboard.drawHighScores(SCREEN_WIDTH, SCREEN_HEIGHT);
-
-
-
+		
+		//scoreboard.drawCurrentScore(DISPLAY_WIDTH, DISPLAY_HEIGHT);
+		scoreboard.drawHighScores(DISPLAY_WIDTH, DISPLAY_HEIGHT, highScores);
+		
 	}
+
 }
+
+
+	void InitializeGame() {
+
+		highScores.LoadFromFile(HIGH_SCORE_FILE);
+		
+		std::cout << "Game initialized." << std::endl;
+	}
+
+
+	void ResetGame() {
+		scoreboard.resetScore(highScores);
+		SetupScene();
+		SpawnBall();
+		std::cout << "Game reset." << std::endl;
+	}
+
+	void UpdateGame() {
+
+		float x = DISPLAY_WIDTH * 0.9;
+		float y = DISPLAY_HEIGHT * 0.95;
+
+		std::string scoreText = "HighScore: ";
+		Play::DrawDebugText(Play::Point2D(x, y), scoreText.c_str(), Play::cWhite);
+		highScores.Draw();
+
+
+		const std::vector<int> ballIds = Play::CollectGameObjectIDsByType(ObjectType::TYPE_BALL);
+		const std::vector<int> bricksId = Play::CollectGameObjectIDsByType(ObjectType::TYPE_BRICK);
+
+		for (int i = 0; i < ballIds.size(); ++i) {
+			Play::GameObject& ball = Play::GetGameObject(ballIds[i]);
+			if (ball.pos.y < 10) {
+				Play::DestroyGameObject(ballIds[i]);
+				ResetGame();
+				break;
+			}
+		}
+	}
+
+
+	void ExitGame() {
+
+		highScores.SaveToFile(HIGH_SCORE_FILE);
+		std::cout << "Exiting game. Goodbye!" << std::endl;
+	}
 
 	
