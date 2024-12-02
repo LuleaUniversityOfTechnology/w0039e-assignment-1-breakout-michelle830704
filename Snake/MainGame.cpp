@@ -1,37 +1,37 @@
-#include "Play.h"
-#include "Apple.h"
-#include "Snake.h"
 
-void MainGameEntry()
-{
-    Play::CreateManager(800, 600, 60);
+#include "Play.h"
+#include "Snake.h"
+#include "Apple.h"
+
+Snake* snake;
+Apple* apple;
+int frameCount = 0;
+
+void MainGameEntry() {
+    snake = new Snake();
+    apple = new Apple();
 }
 
-void MainGameUpdate()
-{
-    Play::ClearDrawingBuffer();
-    static Snake snake;
-    static Apple apple;
-
-    snake.HandleInput();
-    static int frameCount = 0;
-    if (frameCount % 6 == 0) 
-    {
-        snake.Move();
-        if (snake.Collide(&apple))
-        {
-            apple.Respawn();
-        }
-    }
+void MainGameUpdate() {
     frameCount++;
 
-    apple.Draw();
-    snake.Draw();
+    if (frameCount % 6 == 0) {  // Limit game speed (moves every 6 frames)
+        snake->HandleInput();
+        snake->Move();
 
-    Play::PresentDrawingBuffer();
+        if (snake->Collide(*apple)) {
+            snake->AddPart();
+            delete apple;  // Remove old apple
+            apple = new Apple();  // Spawn new apple
+        }
+    }
+
+    // Draw the game
+    snake->Draw();
+    apple->Draw();
 }
 
-void MainGameExit()
-{
-    Play::DestroyManager();
+void MainGameExit() {
+    delete snake;
+    delete apple;
 }

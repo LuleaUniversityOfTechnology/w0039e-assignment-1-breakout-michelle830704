@@ -1,19 +1,17 @@
+
 #ifndef SNAKEPART_H
 #define SNAKEPART_H
 
-#include "Play.h"
+#include "Point2D.h"
+#include "Play.h" // Assuming Play::Colour is part of your library
 
-class SnakePart
-{
-private:
-    Point2D position;
-    Play::Colour colour;
-
+class SnakePart {
 public:
-    SnakePart(Point2D pos);
-    void Draw() const;
-    void SetPosition(Point2D pos);
-    Point2D GetPosition() const;
+    Point2D position;
+    Play::Colour color;
+
+    SnakePart(Point2D pos, Play::Colour col);  // Constructor
+    void Draw() const;  // Draws the snake part on the screen
 };
 
 #endif // SNAKEPART_H

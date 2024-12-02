@@ -1,18 +1,16 @@
+
 #ifndef APPLE_H
 #define APPLE_H
 
-#include "Play.h"
+#include "Point2D.h"
+#include "Play.h" // Assuming Play is part of your library
 
-class Apple
-{
-private:
+class Apple {
+public:
     Point2D position;
 
-public:
-    Apple();
-    void Respawn();
-    void Draw() const;
-    Point2D GetPosition() const;
+    Apple();  // Constructor to randomize the apple's position
+    void Draw() const;  // Draws the apple on screen
 };
 
 #endif // APPLE_H
