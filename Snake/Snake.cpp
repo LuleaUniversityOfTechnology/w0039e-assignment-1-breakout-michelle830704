@@ -1,6 +1,6 @@
 
 #include "Snake.h"
-#include "Play.h" // Assuming Play::IsColliding exists
+#include "Play.h" 
 
 
 

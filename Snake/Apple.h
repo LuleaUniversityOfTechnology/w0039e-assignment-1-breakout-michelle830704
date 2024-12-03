@@ -10,8 +10,8 @@ class Apple {
 public:
     Point2D position;
 
-    Apple();  // Constructor to randomize the apple's position
-    void Draw() const;  // Draws the apple on screen
+    Apple();  
+    void Draw() const;  
 };
 
-#endif // APPLE_H
+#endif 

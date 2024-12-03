@@ -19,13 +19,13 @@ public:
     Direction heading;
     std::vector<SnakePart*> parts;
 
-    Snake();  // Constructor to initialize the snake
-    ~Snake();  // Destructor to delete allocated memory
-    void Draw() const;  // Draw the snake
-    void HandleInput();  // Handle user input to change direction
-    void Move();  // Move the snake
-    void AddPart();  // Add a new part to the snake
-    bool Collide(const Apple& apple) const;  // Check for collision with an apple
+    Snake();  
+    ~Snake();  
+    void Draw() const;  
+    void HandleInput();  
+    void Move();  
+    void AddPart();  
+    bool Collide(const Apple& apple) const; 
 };
 
-#endif // SNAKE_H
+#endif 

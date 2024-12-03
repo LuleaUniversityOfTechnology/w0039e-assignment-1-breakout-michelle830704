@@ -4,5 +4,5 @@
 SnakePart::SnakePart(Point2D pos, Play::Colour col) : position(pos), color(col) {}
 
 void SnakePart::Draw() const {
-    Play::DrawCircle({ position.x, position.y }, 5, color);  // Assuming Play::DrawCircle works like this
+    Play::DrawCircle({ position.x, position.y }, 5, color);  
 }

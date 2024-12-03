@@ -8,4 +8,4 @@ enum class Heading {
     East
 };
 
-#endif // HEADING_H
+#endif 
