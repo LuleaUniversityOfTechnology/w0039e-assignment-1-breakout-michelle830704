@@ -7,8 +7,8 @@
 
 Snake::Snake() : heading(Direction::East) {
     // Initialize the snake with two parts
-    parts.push_back(new SnakePart(Point2D(50, 50), Play::Colour::Green));
-    parts.push_back(new SnakePart(Point2D(40, 50), Play::Colour::Green));
+    parts.push_back(new SnakePart(Point2D(50, 50),Play::Colour(0, 255, 0)));
+    parts.push_back(new SnakePart(Point2D(40, 50),Play::Colour(0, 255, 0)));
 }
 
 Snake::~Snake() {
@@ -39,12 +39,12 @@ void Snake::HandleInput() {
 }
 
 void Snake::Move() {
-    // Move the snake's body in reverse
+
     for (int i = parts.size() - 1; i > 0; --i) {
         parts[i]->position = parts[i - 1]->position;
     }
 
-    // Move the head
+ 
     switch (heading) {
     case Direction::North:
         parts[0]->position.y -= 10;
@@ -63,7 +63,7 @@ void Snake::Move() {
 
 void Snake::AddPart() {
     Point2D newPartPosition = parts[parts.size() - 1]->position;
-    parts.push_back(new SnakePart(newPartPosition, Play::Colour::Green));
+    parts.push_back(new SnakePart(newPartPosition, Play::Colour(255, 0, 0)));
 }
 
 bool Snake::Collide(const Apple& apple) const {

@@ -15,18 +15,18 @@ void MainGameEntry() {
 void MainGameUpdate() {
     frameCount++;
 
-    if (frameCount % 6 == 0) {  // Limit game speed (moves every 6 frames)
+    if (frameCount % 6 == 0) {  
         snake->HandleInput();
         snake->Move();
 
         if (snake->Collide(*apple)) {
             snake->AddPart();
-            delete apple;  // Remove old apple
-            apple = new Apple();  // Spawn new apple
+            delete apple;  
+            apple = new Apple();  
         }
     }
 
-    // Draw the game
+  
     snake->Draw();
     apple->Draw();
 }

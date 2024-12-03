@@ -9,4 +9,4 @@ struct Point2D {
     Point2D(float x = 0, float y = 0) : x(x), y(y) {}
 };
 
-#endif // POINT2D_H
+#endif 

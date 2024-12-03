@@ -10,5 +10,5 @@ Apple::Apple() {
 }
 
 void Apple::Draw() const {
-    Play::DrawCircle({ position.x, position.y }, 5, Play::Colour::Red);  // Assuming Play::Colour::Red exists
+    Play::DrawCircle({ position.x, position.y }, 5, Play::Colour(255, 0, 0));  // Assuming Play::Colour::Red exists
 }
