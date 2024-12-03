@@ -1,14 +1,15 @@
-
+#define PLAY_USING_GAMEOBJECT_MANAGER
 #include "Snake.h"
 #include "Play.h" 
+#include "Point2D.h"
 
 
 
 
-Snake::Snake() : heading(Direction::East) {
+Snake::Snake() : heading(MyMath::Direction::East) {
     // Initialize the snake with two parts
-    parts.push_back(new SnakePart(Point2D(50, 50),Play::Colour(0, 255, 0)));
-    parts.push_back(new SnakePart(Point2D(40, 50),Play::Colour(0, 255, 0)));
+    parts.push_back(new SnakePart(MyMath::Point2D(40, 40),Play::Colour(0, 255, 0)));
+    parts.push_back(new SnakePart(MyMath::Point2D(30, 10),Play::Colour(0, 255, 0)));
 }
 
 Snake::~Snake() {
@@ -25,16 +26,16 @@ void Snake::Draw() const {
 
 void Snake::HandleInput() {
     if (Play::KeyPressed(Play::KEY_UP)) {
-        heading = Direction::North;
+        heading = MyMath::Direction::North;
     }
     else if (Play::KeyPressed(Play::KEY_DOWN)) {
-        heading = Direction::South;
+        heading = MyMath::Direction::South;
     }
     else if (Play::KeyPressed(Play::KEY_LEFT)) {
-        heading = Direction::West;
+        heading = MyMath::Direction::West;
     }
     else if (Play::KeyPressed(Play::KEY_RIGHT)) {
-        heading = Direction::East;
+        heading = MyMath::Direction::East;
     }
 }
 
@@ -46,26 +47,29 @@ void Snake::Move() {
 
  
     switch (heading) {
-    case Direction::North:
+    case MyMath::Direction::North:
         parts[0]->position.y -= 10;
         break;
-    case Direction::South:
+    case MyMath::Direction::South:
         parts[0]->position.y += 10;
         break;
-    case Direction::East:
+    case MyMath::Direction::West:
         parts[0]->position.x += 10;
         break;
-    case Direction::West:
+    case MyMath::Direction::East:
         parts[0]->position.x -= 10;
         break;
     }
 }
 
 void Snake::AddPart() {
-    Point2D newPartPosition = parts[parts.size() - 1]->position;
-    parts.push_back(new SnakePart(newPartPosition, Play::Colour(255, 0, 0)));
+     MyMath::Point2D newPartPosition = (parts.empty()) ? MyMath::Point2D(0, 0) : parts[parts.size() - 1]->position;
+     parts.push_back(new SnakePart(newPartPosition, Play::Colour(255, 0, 0)));
 }
 
 bool Snake::Collide(const Apple& apple) const {
-    return Play::IsColliding({ parts[0]->position.x, parts[0]->position.y }, { apple.position.x, apple.position.y }, 5, 5); // Check collision
+    
+    bool collide = false;
+    
+    return collide; // Check collision
 }

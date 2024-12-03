@@ -1,7 +1,9 @@
-
+#define PLAY_USING_GAMEOBJECT_MANAGER
 #include "Apple.h"
 #include <cstdlib> 
-#include <ctime>   
+#include <ctime>
+#include "Play.h"
+
 Apple::Apple() {
     srand(static_cast<unsigned int>(time(0))); 
     position.x = static_cast<float>(rand() % 400);

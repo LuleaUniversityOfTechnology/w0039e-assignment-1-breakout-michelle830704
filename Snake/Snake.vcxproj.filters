@@ -38,5 +38,8 @@
     <ClInclude Include="Point2D.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="constant.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
