@@ -19,9 +19,6 @@ void MainGameEntry(PLAY_IGNORE_COMMAND_LINE) {
 
 
 bool StepFrame(float elapsedTime) {
-
-    myFrameCount++;
-
     if (myFrameCount % 6 == 0) {
         snake->HandleInput();
         snake->Move();
@@ -33,6 +30,7 @@ bool StepFrame(float elapsedTime) {
         }
     }
 
+    myFrameCount++;
 
     snake->Draw();
     apple->Draw();
@@ -46,7 +44,6 @@ bool MainGameUpdate(float elapsedTime) {
     Play::ClearDrawingBuffer(Play::cBlack);
     StepFrame(elapsedTime);
     Play::PresentDrawingBuffer(); 
-    Play::DestroyManager();
     return Play::KeyDown(Play::KEY_ESCAPE);
 }
 
@@ -57,5 +54,6 @@ bool MainGameUpdate(float elapsedTime) {
 int MainGameExit() {
     delete snake;
     delete apple;
+    Play::DestroyManager();
     return PLAY_OK;
 }

@@ -18,7 +18,7 @@ public:
     Snake();  
     ~Snake();  
     void Draw() const;  
-    bool StepFrame(float elapsedTime);
+    //bool StepFrame(float elapsedTime);
     void HandleInput();  
     void Move();  
     void AddPart();  
