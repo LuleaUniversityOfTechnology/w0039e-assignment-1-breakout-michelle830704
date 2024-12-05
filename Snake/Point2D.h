@@ -11,6 +11,11 @@ namespace MyMath
         float y;
 
         Point2D(float x = 0, float y = 0) : x(x), y(y) {}
+        bool operator==(const Point2D& other) const {
+            return (x == other.x && y == other.y);
+
+        }
+
     };
 
     enum class Direction {

@@ -15,14 +15,22 @@ public:
     MyMath::Direction heading;
     std::vector<SnakePart*> parts;
 
+    float moveTimer = 0.0f;      // Time since the last move
+    const float moveInterval = 8.0f; // The interval between moves (controls the speed)
+
+
     Snake();  
     ~Snake();  
     void Draw() const;  
-    //bool StepFrame(float elapsedTime);
+
     void HandleInput();  
     void Move();  
     void AddPart();  
-    bool Collide(const Apple& apple) const; 
+    bool Collide(const Apple& apple);  
+    bool CollideWithItself();           
+
+
+
 
 };
 

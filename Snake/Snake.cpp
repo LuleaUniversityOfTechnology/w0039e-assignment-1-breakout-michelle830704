@@ -8,8 +8,8 @@
 
 Snake::Snake() : heading(MyMath::Direction::North) {
     // Initialize the snake with two parts
-    parts.push_back(new SnakePart(MyMath::Point2D(40, 40),Play::Colour(0, 255, 0)));
-    parts.push_back(new SnakePart(MyMath::Point2D(30, 10),Play::Colour(0, 255, 0)));
+    parts.push_back(new SnakePart(MyMath::Point2D(40, 40),Play::Colour(0, 100, 0)));
+    parts.push_back(new SnakePart(MyMath::Point2D(30, 10),Play::Colour(0, 100, 0)));
 }
 
 Snake::~Snake() {
@@ -68,17 +68,17 @@ void Snake::AddPart() {
 }
 
 bool Snake::Collide(const Apple& apple) {
-    // Calculate the distance from the snake's head (parts[0]) to the apple
-    float dx = apple.position.x - parts[0].x;  // Assuming parts[0] has x and y coordinates
-    float dy = apple.position.y - parts[0].y;  // Assuming parts[0] has x and y coordinates
 
-    // Check if the distance is less than the sum of radii (assuming ball.radius is the radius of the apple)
-    if ((dx * dx + dy * dy) < (ball.radius * ball.radius)) {
-        // Collision detected, so grow the snake
-        // Add a new part to the snake (here we are simply adding a new segment at the last position)
-        parts.push_back(parts[parts.size() - 1]);  // Adds a new body part at the current last position
-        return true;  // Collision detected
+    float dx = apple.position.x - parts[0]->position.x;
+    float dy = apple.position.y - parts[0]->position.y;
+
+    float distance = sqrt(dx * dx + dy * dy);
+
+
+    if (distance < 2.0f) {
+
+        AddPart();
+        return true;
     }
-
-    return false;  // No collision
 }
+
